@@ -1,1 +1,1 @@
-LOAD_FROM_/tmp/push-real-all.json
+LOAD_FROM_FILE:/workspace/money-ops/contests/amazon-dev/tools/briefbot_tools.py
