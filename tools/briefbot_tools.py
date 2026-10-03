@@ -1,1 +1,1 @@
-PLACEHOLDER_WILL_REPLACE
+{{FILE:/workspace/bb_py_content.txt}}

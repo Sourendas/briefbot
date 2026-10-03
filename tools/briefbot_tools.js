@@ -1,1 +1,1 @@
-LOAD_FROM_FILE:/workspace/money-ops/contests/amazon-dev/tools/briefbot_tools.js
+{{FILE:/workspace/bb_js_content.txt}}
