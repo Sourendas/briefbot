@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BriefBot — Alexa+ Web Sim (Amazon Developer Hackathon)</title>
+  <meta name="description" content="Offline Alexa+ simulated agent that turns messy freelance briefs into scoped proposals via MCP-style tools." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1><span>BriefBot</span> · Alexa+ web sim</h1>
+        <div class="badge-row" style="margin-top:8px">
+          <span class="badge on">Offline · $0</span>
+          <span class="badge on">Rule engine (no LLM key)</span>
+          <span class="badge">Tools: parse_brief · draft_proposal · list_risks · ask_clarifiers</span>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="badge">Track: Alexa+</span>
+        <span class="badge">No device required</span>
+      </div>
+    </header>
+
+    <div class="main">
+      <section class="panel" aria-label="Chat">
+        <h2>Agent chat</h2>
+        <div id="chat" class="chat" role="log" aria-live="polite"></div>
+        <div class="composer">
+          <textarea id="input" placeholder="Paste a messy brief… (Ctrl/Cmd+Enter to send)"></textarea>
+          <div class="btn-col">
+            <button class="primary" id="sendBtn" type="button">Send</button>
+            <button id="pipelineBtn" type="button">Run pipeline</button>
+            <button class="ghost" id="clearBtn" type="button">Clear</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Tools and JSON">
+        <h2>MCP-style tools</h2>
+        <div class="side-body">
+          <div id="tools" class="tools"></div>
+          <div>
+            <strong style="color:#9aa8c7;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em">Sample briefs</strong>
+            <div id="samples" class="samples" style="margin-top:8px"></div>
+          </div>
+          <div>
+            <strong style="color:#9aa8c7;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em">Last tool / proposal JSON</strong>
+            <pre id="jsonOut" class="json-view">{}</pre>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Amazon Developer Hackathon · Alexa+ track · Local MVP for Souren Das ·
+      Open <code>sim/index.html</code> or run a static server from the contest folder.
+      Schema: <code>../schema/proposal.schema.json</code>
+    </footer>
+  </div>
+
+  <script src="../tools/briefbot_tools.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
