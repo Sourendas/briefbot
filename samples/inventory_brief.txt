@@ -1,0 +1,1 @@
+Need Zapier + Sheets automation for inventory. When stock changes in Google Sheets, notify Slack and update a simple dashboard. ASAP. Budget $500-800. Solo shop owner, no engineering team.

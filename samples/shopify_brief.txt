@@ -1,0 +1,1 @@
+Build a Shopify product sync to Airtable for a small store. Flexible timeline. Zero spend preferred. Need MVP, not a full ERP.
