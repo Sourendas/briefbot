@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://briefbot.local/schema/proposal.schema.json",
+  "title": "BriefBotProposal",
+  "description": "Deterministic proposal output from BriefBot tools (Alexa+ / MCP MVP).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "title", "summary", "client_goal", "deliverables", "timeline", "scope_in", "scope_out", "assumptions", "risks", "clarifying_questions", "next_steps"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "client_goal": { "type": "string" },
+    "platforms": { "type": "array", "items": { "type": "string" } },
+    "integrations": { "type": "array", "items": { "type": "string" } },
+    "deliverables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "description", "acceptance"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "acceptance": { "type": "string" }
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phases", "total_days_estimate"],
+      "properties": {
+        "total_days_estimate": { "type": "integer", "minimum": 1 },
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "days", "outcomes"],
+            "properties": {
+              "name": { "type": "string" },
+              "days": { "type": "integer", "minimum": 1 },
+              "outcomes": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "scope_in": { "type": "array", "items": { "type": "string" } },
+    "scope_out": { "type": "array", "items": { "type": "string" } },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "severity", "impact", "mitigation"],
+        "properties": {
+          "id": { "type": "string" },
+          "severity": { "type": "string", "enum": ["low", "medium", "high"] },
+          "impact": { "type": "string", "enum": ["low", "medium", "high"] },
+          "mitigation": { "type": "string" }
+        }
+      }
+    },
+    "clarifying_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "question", "why"],
+        "properties": {
+          "id": { "type": "string" },
+          "question": { "type": "string" },
+          "why": { "type": "string" }
+        }
+      }
+    },
+    "next_steps": { "type": "array", "items": { "type": "string" } },
+    "price_band": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": { "type": "string" },
+        "low": { "type": "number" },
+        "high": { "type": "number" },
+        "note": { "type": "string" }
+      }
+    },
+    "meta": { "type": "object", "additionalProperties": true }
+  }
+}
